@@ -49,8 +49,7 @@ const GameController = (() => {
     ]
 
     // Check for wins
-    const checkwins = () => {
-        let game = Gameboard.getBoard();  // Get the current state of the game
+    const checkwins = (game) => {
         for (const combination of winningCombination) {
             const [a,b,c] = combination;
             // Check for winning condition 
@@ -61,20 +60,43 @@ const GameController = (() => {
         return null; // No winners
     } 
 
+    // Check for draws
+    const checkdraws = (game) => {
+        // let draw = true;
+        // for (let cell of game) {
+        //     if (cell === null) {
+        //         draw = false;
+        //         break; // Cell is yet to be filled 
+        //     }
+        // }
+        // return draw;
+
+        // Codes can be simplified as:
+        return game.every(cell => cell != null); //Return true if no empty cell is detected
+    }
+
     const handleClick = (index) => {
         // Place Mark on the board
         Gameboard.placeMark(index, currentPlayer.mark);
 
+        // Get the current state of the game
+        let game = Gameboard.getBoard();  
+
         // Check for winner
-        const winner = checkwins();
+        const winner = checkwins(game);
         if (winner) {
             console.log(`Winner is ${winner}`)
         }
 
-
+        // Check for draws
+        const draws = checkdraws(game);
+        if (draws) {
+            console.log(`Draws`);
+        }
 
         currentPlayer = currentPlayer === player1 ? player2 : player1;
     };   
+
 
     // Reset the game 
     const startGame = () => {
