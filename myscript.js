@@ -5,8 +5,11 @@ const Gameboard = (() => {
 
     // Place mark
     const placeMark = (index, mark) => {
-        if(board[index] === null) {
+        if (board[index] === null) {
             board[index] = mark;
+            return true;
+        } else {
+            return false;
         }
     };
 
@@ -62,22 +65,12 @@ const GameController = (() => {
 
     // Check for draws
     const checkdraws = (game) => {
-        // let draw = true;
-        // for (let cell of game) {
-        //     if (cell === null) {
-        //         draw = false;
-        //         break; // Cell is yet to be filled 
-        //     }
-        // }
-        // return draw;
-
-        // Codes can be simplified as:
         return game.every(cell => cell != null); //Return true if no empty cell is detected
     }
 
     const handleClick = (index) => {
         // Place Mark on the board
-        Gameboard.placeMark(index, currentPlayer.mark);
+        const placeMark = Gameboard.placeMark(index, currentPlayer.mark);
 
         // Get the current state of the game
         let game = Gameboard.getBoard();  
@@ -94,7 +87,14 @@ const GameController = (() => {
             console.log(`Draws`);
         }
 
-        currentPlayer = currentPlayer === player1 ? player2 : player1;
+        // Validate the mark 
+        if (placeMark){
+            // Switich Player 
+            currentPlayer = currentPlayer === player1 ? player2 : player1;
+        } else {
+            // Remaing the same player since the input is invalid 
+            console.log(`Wrong Place. Please re-enter your input`);
+        }
     };   
 
 
