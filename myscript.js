@@ -84,7 +84,7 @@ const GameController = (() => {
         // Check for draws
         const draws = checkdraws(game);
         if (draws) {
-            console.log(`Draws`);
+            console.log(`It is a draw!`);
         }
 
         // Validate the mark 
