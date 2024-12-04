@@ -1,28 +1,31 @@
 body {
     height: 100vh;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     background-color: #f7f7f7;
     font-family: 'Arial', sans-serif;
 }
 
 .header {
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     gap: 10px;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
 }
 
 .restart{
     margin-left: 10px;
-    margin-bottom: 5px;
-    padding: 8px 28px; 
+    padding: 8px 18px; 
     font-size: 16px; 
     background-color: #007BFF;
     color: white; 
     border: none; 
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer; 
     transition: background-color 0.3s;
 }
@@ -32,7 +35,6 @@ body {
 }
 
 .title {
-    margin-top: 20px; 
     font-size: 36px; 
     font-weight: 700; 
     color: #333; 
@@ -40,13 +42,14 @@ body {
 }
 
 .comment {
-    margin-top: 20px;
+    text-align: center;
+    margin-top: 30px;
     font-size: 18px;
     color: #555; 
 }
 
 .game {
-    margin-top: 20px;
+    margin-top: 30px; 
 }
 
 table {
@@ -70,4 +73,13 @@ td {
 
 td:hover {
     background-color: #ffe5e5; 
+}
+
+footer {
+    background-color: #ece7e7;
+    text-align: center;
+    font-size: 13px;
+    width: 100%;
+    margin: 0; 
+    padding: 10px 0; 
 }
