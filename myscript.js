@@ -128,8 +128,11 @@ const playGame = () => {
     // Step 1: StartGame
     GameController.startGame();
 
+    let gameActive = true; // Flag to track if the game is active
+
     // Step 2.1: Prompt users to place an index
     document.querySelector(".gameboard").addEventListener("click", (event) => {
+        if (!gameActive) return;
         if(event.target.tagName === "TD") {
             // Debugging line
             console.log(`Event ran`)
@@ -144,12 +147,12 @@ const playGame = () => {
                 // game has a winner
                 let comment = document.querySelector(".comment");
                 comment.innerHTML = `The winner is ${winner}`
-
+                gameActive = false; // Set gameActive to false
             } else if (winner === false) {
                 // Game is tied
                 let comment = document.querySelector(".comment");
                 comment.innerHTML = `The game is tied!`
-
+                gameActive = false; // Set gameActive to false
             }
 
             // Update the board
@@ -161,6 +164,7 @@ const playGame = () => {
     document.querySelector(".restart").addEventListener("click", () => {
         // Reset the game 
         GameController.startGame();
+        gameActive = true; // Set gameActive to false
 
         // Update the board
         gameboard(Gameboard.getBoard());
