@@ -1,0 +1,27 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    margin-top: 80px;
+    font-size: 30px;
+    font-weight: 600px;
+    font-family: Cambria, Cochin, Georgia;
+}
+
+.game {
+    margin-top: 20px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr td {
+    border: 1px solid black;
+    height: 130px;
+    width: 130px;
+}

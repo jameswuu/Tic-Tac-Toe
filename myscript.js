@@ -106,3 +106,17 @@ const GameController = (() => {
 
     return { startGame, handleClick };
 })();
+
+
+
+// Play the game on the page
+
+// Play the game in the console
+
+// Step 1: GameController.startGame()
+
+// Step 2: Player 1 turn: GameController.handleClick(index)
+
+// Step 3: Player 2 turn: GameController.handleClick(index) 
+
+// Step 4: Repeat step 2,3 until a draw or a win
