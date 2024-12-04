@@ -133,15 +133,17 @@ const playGame = () => {
             console.log(`Event ran`)
             const cell = event.target;
             const index = cell.getAttribute("data-index");
-            console.log(`The index of the current target is ${index}`)
+            console.log(`The index of the current target is ${index}`);
+
+            // Pass the current clicked index to handleClick
+            GameController.handleClick(index);
+
+            // Update the board
+            gameboard(Gameboard.getBoard());
         }
     })
 
-    
-
-
     // Step 3: Display the current gameboard on DOM
-    gameboard(Gameboard.getBoard());
 
     // Step 4: Ask if the user want to play again
 
@@ -163,11 +165,6 @@ function gameboard(board) {
         }
     }
 }
-
-// Select the desired square on the DOM and pass it to the gameBoard.placeMark
-function placeIndex() {
-
-} 
 
 // Game start
 playGame()
