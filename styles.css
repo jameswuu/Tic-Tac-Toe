@@ -25,3 +25,9 @@ tr td {
     height: 130px;
     width: 130px;
 }
+
+td {
+    text-align: center;
+    font-size: 80px;
+    font-weight: 300;
+}

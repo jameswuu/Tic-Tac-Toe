@@ -1,7 +1,19 @@
 // Gameboard IIFE
 const Gameboard = (() => {
     // Initialize the gameboard
-    const board = Array(9).fill(null);
+    // const board = Array(9).fill(null);
+
+    // Integrating with the DOM
+    const board = [];
+    board[0] = 'X'; 
+    board[1] = 'O'; 
+    board[2] = 'X'; 
+    board[3] = 'O'; 
+    board[4] = 'X'; 
+    board[5] = null;
+    board[6] = null;
+    board[7] = 'O'; 
+    board[8] = null;
 
     // Place mark
     const placeMark = (index, mark) => {
@@ -111,9 +123,39 @@ const GameController = (() => {
 
 // Play the game on the page
 
-// Play the game in the console
-
 // Step 1: GameController.startGame()
+const playGame = () => {
+    // Start the game
+    // GameController.startGame();
+
+    // Display the current gameboard on DOM
+    gameboard(Gameboard.getBoard());
+}
+
+// Render the contents of the gameboard array to the webpage
+function gameboard(board) {
+    // Debugging line
+    console.log(board);
+
+    // Update the innerHTML with a loop
+    for (const index of board.keys()) {
+        // Get the DOM
+        const cell = document.querySelector(`.gameboard td[data-index="${index}"]`);
+
+        // Ensure the cell exists
+        if (cell) {
+            cell.innerHTML = board[index]; // Update the innerHTML
+        } else {
+            console.log(`Cell ${index} does not exist`)
+        }
+    }
+}
+
+
+// Game start
+playGame()
+
+
 
 // Step 2: Player 1 turn: GameController.handleClick(index)
 
