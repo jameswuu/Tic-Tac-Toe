@@ -90,7 +90,8 @@ const GameController = (() => {
         // Check for winner
         const winner = checkwins(game);
         if (winner) {
-            console.log(`Winner is ${winner}`)
+            console.log(`Winner is ${winner}`);
+            return;
         }
 
         // Check for draws
@@ -126,7 +127,7 @@ const playGame = () => {
     // Step 1: StartGame
     GameController.startGame();
 
-    // Step 2: Prompt users to place an index
+    // Step 2.1: Prompt users to place an index
     document.querySelector(".gameboard").addEventListener("click", (event) => {
         if(event.target.tagName === "TD") {
             // Debugging line
@@ -143,9 +144,16 @@ const playGame = () => {
         }
     })
 
-    // Step 3: Display the current gameboard on DOM
+    // Step 2.2: Add a restart button
+    document.querySelector(".restart").addEventListener("click", () => {
+        // Reset the game 
+        GameController.startGame();
 
-    // Step 4: Ask if the user want to play again
+        // Update the board
+        gameboard(Gameboard.getBoard());
+    })
+
+    // Step 3: Ask if the user want to play again
 
 
 }
