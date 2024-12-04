@@ -122,14 +122,19 @@ const GameController = (() => {
 
 
 // Play the game on the page
-
-// Step 1: GameController.startGame()
 const playGame = () => {
-    // Start the game
+    // Step 1: StartGame()
     // GameController.startGame();
 
-    // Display the current gameboard on DOM
+    // Step 2: Prompt users to place an index
+
+
+    // Step 3: Display the current gameboard on DOM
     gameboard(Gameboard.getBoard());
+
+    // Step 4: Ask if the user want to play again
+
+
 }
 
 // Render the contents of the gameboard array to the webpage
@@ -154,11 +159,3 @@ function gameboard(board) {
 
 // Game start
 playGame()
-
-
-
-// Step 2: Player 1 turn: GameController.handleClick(index)
-
-// Step 3: Player 2 turn: GameController.handleClick(index) 
-
-// Step 4: Repeat step 2,3 until a draw or a win
