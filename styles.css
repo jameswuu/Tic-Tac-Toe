@@ -30,4 +30,9 @@ td {
     text-align: center;
     font-size: 80px;
     font-weight: 300;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: seashell;
 }

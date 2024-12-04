@@ -1,19 +1,19 @@
 // Gameboard IIFE
 const Gameboard = (() => {
     // Initialize the gameboard
-    // const board = Array(9).fill(null);
+    const board = Array(9).fill(null);
 
-    // Integrating with the DOM
-    const board = [];
-    board[0] = 'X'; 
-    board[1] = 'O'; 
-    board[2] = 'X'; 
-    board[3] = 'O'; 
-    board[4] = 'X'; 
-    board[5] = null;
-    board[6] = null;
-    board[7] = 'O'; 
-    board[8] = null;
+    // Testing to integrate array with DOM
+    // const board = [];
+    // board[0] = 'X'; 
+    // board[1] = 'O'; 
+    // board[2] = 'X'; 
+    // board[3] = 'O'; 
+    // board[4] = 'X'; 
+    // board[5] = null;
+    // board[6] = null;
+    // board[7] = 'O'; 
+    // board[8] = null;
 
     // Place mark
     const placeMark = (index, mark) => {
@@ -123,10 +123,21 @@ const GameController = (() => {
 
 // Play the game on the page
 const playGame = () => {
-    // Step 1: StartGame()
-    // GameController.startGame();
+    // Step 1: StartGame
+    GameController.startGame();
 
     // Step 2: Prompt users to place an index
+    document.querySelector(".gameboard").addEventListener("click", (event) => {
+        if(event.target.tagName === "TD") {
+            // Debugging line
+            console.log(`Event ran`)
+            const cell = event.target;
+            const index = cell.getAttribute("data-index");
+            console.log(`The index of the current target is ${index}`)
+        }
+    })
+
+    
 
 
     // Step 3: Display the current gameboard on DOM
@@ -139,9 +150,6 @@ const playGame = () => {
 
 // Render the contents of the gameboard array to the webpage
 function gameboard(board) {
-    // Debugging line
-    console.log(board);
-
     // Update the innerHTML with a loop
     for (const index of board.keys()) {
         // Get the DOM
@@ -156,6 +164,10 @@ function gameboard(board) {
     }
 }
 
+// Select the desired square on the DOM and pass it to the gameBoard.placeMark
+function placeIndex() {
+
+} 
 
 // Game start
 playGame()
