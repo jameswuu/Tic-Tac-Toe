@@ -90,14 +90,13 @@ const GameController = (() => {
         // Check for winner
         const winner = checkwins(game);
         if (winner) {
-            console.log(`Winner is ${winner}`);
-            return;
+            return winner;
         }
 
         // Check for draws
         const draws = checkdraws(game);
         if (draws) {
-            console.log(`It is a draw!`);
+            return false;
         }
 
         // Validate the mark 
@@ -137,7 +136,17 @@ const playGame = () => {
             console.log(`The index of the current target is ${index}`);
 
             // Pass the current clicked index to handleClick
-            GameController.handleClick(index);
+            const winner = GameController.handleClick(index);
+
+            if (winner) {
+                // game has a winner
+                console.log(`The winner is ${winner}`)
+
+            } else if (winner === false) {
+                // Game is tied
+                console.log(`The game is tied!`)
+
+            }
 
             // Update the board
             gameboard(Gameboard.getBoard());
