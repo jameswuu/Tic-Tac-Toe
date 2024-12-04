@@ -28,6 +28,8 @@ const Gameboard = (() => {
     // Reset the board
     const resetBoard = () => {
         board.fill(null);
+        let comment = document.querySelector(".comment");
+        comment.innerHTML = '';
     }
 
     // Get Current state of the board
@@ -140,11 +142,13 @@ const playGame = () => {
 
             if (winner) {
                 // game has a winner
-                console.log(`The winner is ${winner}`)
+                let comment = document.querySelector(".comment");
+                comment.innerHTML = `The winner is ${winner}`
 
             } else if (winner === false) {
                 // Game is tied
-                console.log(`The game is tied!`)
+                let comment = document.querySelector(".comment");
+                comment.innerHTML = `The game is tied!`
 
             }
 
